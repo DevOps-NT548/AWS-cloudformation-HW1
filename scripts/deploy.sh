@@ -27,6 +27,7 @@ echo "Starting stack deployment process..." | tee $OUTPUT_FILE
 
 # Deploy stacks in the correct order
 deploy_stack "vpc-stack" "templates/vpc.yaml" $OUTPUT_FILE
+deploy_stack "internet-gateway-stack" "templates/internet-gateway.yaml" $OUTPUT_FILE
 deploy_stack "route-tables-stack" "templates/route-tables.yaml" $OUTPUT_FILE
 deploy_stack "nat-gateway-stack" "templates/nat-gateway.yaml" $OUTPUT_FILE
 deploy_stack "security-groups-stack" "templates/security-groups.yaml" $OUTPUT_FILE
