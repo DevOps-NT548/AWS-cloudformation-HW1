@@ -10,20 +10,7 @@ Resources:
       EnableDnsHostnames: true
       Tags:
         - Key: Name
-          Value: Group20
-
-  InternetGateway:
-    Type: AWS::EC2::InternetGateway
-    Properties:
-      Tags:
-        - Key: Name
-          Value: MyInternetGateway
-
-  AttachGateway:
-    Type: AWS::EC2::VPCGatewayAttachment
-    Properties:
-      VpcId: !Ref MyVPC
-      InternetGatewayId: !Ref InternetGateway
+          Value: group20-vpc
 
   PublicSubnet:
     Type: AWS::EC2::Subnet
@@ -46,22 +33,16 @@ Outputs:
     Description: The VPC ID
     Value: !Ref MyVPC
     Export:
-      Name: Group20
+      Name: MyVPCId
 
   PublicSubnetId:
     Description: The Public Subnet ID
     Value: !Ref PublicSubnet
     Export:
-      Name: PublicSubnet
+      Name: PublicSubnetId
 
   PrivateSubnetId:
     Description: The Private Subnet ID
     Value: !Ref PrivateSubnet
     Export:
-      Name: PrivateSubnet
-
-  InternetGatewayId:
-    Description: The Internet Gateway ID
-    Value: !Ref InternetGateway
-    Export:
-      Name: InternetGateway
+      Name: PrivateSubnetId
